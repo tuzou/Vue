@@ -47,7 +47,7 @@
 		text-align: none;
 		list-style: none;
 	}
-	
+
 	.tabars {
 		width: 100%;
 		height: 7vh;
@@ -57,20 +57,20 @@
 		overflow: hidden;
 		left: 0;
 	}
-	
+
 	.tabars>div {
 		width: 25%;
 		height: 100%;
 		text-align: center;
 		float: left;
 	}
-	
+
 	.tabars>div>img {
 		padding-top: 1vh;
 		width: 20px;
 		height: 20px;
 	}
-	
+
 	.tabars>div>p {
 		font-size: 13px;
 		color: rgb(45, 61, 111);

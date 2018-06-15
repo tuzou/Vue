@@ -1,7 +1,7 @@
 <template>
     <div>
       <div class="search">
-        <span style="float: left;margin-left: 3%;font-size: 12px;color: rgb(84, 97, 117)">搜索</span>
+        <span style="float: left;margin-left: 5%;font-size: 12px;color: rgb(84, 97, 117)">搜索</span>
         <div class="bao"><img class="bigimg" src="../../../imgs/download-6.png" alt=""><div class="xian"></div><input placeholder="搜索目的地和关键字" type="text"></div>
         <span class="cancel">取消</span>
       </div>
@@ -36,7 +36,7 @@
     background-color: rgb(229,229,229);
     line-height: 25px;
     height:25px;
-    width: 266px;
+    width: 64%;
     border-radius: 15px;
     margin-top: 15px;
     margin-left: 8%;
@@ -46,7 +46,7 @@
     background-color: rgb(229,229,229);
     border: 0;
     height:25px;
-    width: 230px;
+    width: 64%;
     margin-left: 5px;
     outline:none;
   }
@@ -69,6 +69,7 @@
     font-size: 12px;
     color: rgb(84, 97, 117);
     margin-left: 5%;
+
   }
   .pur_nav{
     width: 100%;

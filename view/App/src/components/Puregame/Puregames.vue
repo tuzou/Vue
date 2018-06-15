@@ -23,40 +23,34 @@
             <span class="text">必游景点推荐</span>
           </div>
           <div class="scenic">
-            <div class="item">
-              <img src="../../../imgs/e13a2388-f460-471f-839d-6f9ee07e3e02-湖边（自拍）.jpg" alt="">
-              <div class="place_name">【云游经典】丽江+大理5日游</div>
-              <span class="feature">纯玩0购物 / 住当地准五小资酒店 / 玉龙雪山冰川大索道 / 拉市海骑马划船 / 纳西篝火晚会 / 特色美食纳西喜宴 / 皇家佛国崇圣三塔 / 360度观光洱海游船 / 清风洱海骑行</span>
+            <div class="item" v-for="(v,k) in datas">
+              <img :src="v.t_img" alt="">
+              <div class="place_name">{{v.t_name}}</div>
+              <span class="feature">{{v.t_note}}</span>
               <div class="pr">
-                <span class="space price">￥240</span><span class="space">元起</span>
-              </div>
-            </div>
-            <div class="item">
-              <img src="../../../imgs/e13a2388-f460-471f-839d-6f9ee07e3e02-湖边（自拍）.jpg" alt="">
-              <div class="place_name">【云游经典】丽江+大理5日游</div>
-              <span class="feature">纯玩0购物 / 住当地准五小资酒店 / 玉龙雪山冰川大索道 / 拉市海骑马划船 / 纳西篝火晚会 / 特色美食纳西喜宴 / 皇家佛国崇圣三塔 / 360度观光洱海游船 / 清风洱海骑行</span>
-              <div class="pr">
-                <span class="space price">￥240</span><span class="space">元起</span>
-              </div>
-            </div>
-            <div class="item">
-              <img src="../../../imgs/e13a2388-f460-471f-839d-6f9ee07e3e02-湖边（自拍）.jpg" alt="">
-              <div class="place_name">【云游经典】丽江+大理5日游</div>
-              <span class="feature">纯玩0购物 / 住当地准五小资酒店 / 玉龙雪山冰川大索道 / 拉市海骑马划船 / 纳西篝火晚会 / 特色美食纳西喜宴 / 皇家佛国崇圣三塔 / 360度观光洱海游船 / 清风洱海骑行</span>
-              <div class="pr">
-                <span class="space price">￥240</span><span class="space">元起</span>
-              </div>
-            </div>
-            <div class="item">
-              <img src="../../../imgs/e13a2388-f460-471f-839d-6f9ee07e3e02-湖边（自拍）.jpg" alt="">
-              <div class="place_name">【云游经典】丽江+大理5日游</div>
-              <span class="feature">纯玩0购物 / 住当地准五小资酒店 / 玉龙雪山冰川大索道 / 拉市海骑马划船 / 纳西篝火晚会 / 特色美食纳西喜宴 / 皇家佛国崇圣三塔 / 360度观光洱海游船 / 清风洱海骑行</span>
-              <div class="pr">
-                <span class="space price">￥240</span><span class="space">元起</span>
+                <span class="space price">￥{{v.t_price}}</span><span class="space">元起</span>
               </div>
             </div>
           </div>
         </div>
+        <div class="route">
+          <div class="tite">
+            <div class="line"></div>
+            <span class="text">纯玩游路线</span>
+          </div>
+          <div class="place">
+            <img :src="datas[6].t_img" alt="">
+            <div class="pl_con">
+              <div>❤苍山感通索道+洱海游船+崇圣寺三塔+慢调大理2日跟团（丽江出发/苍洱风情/即刻出发）</div>
+              <span class="al price">￥460</span><span class="al">元起</span>
+              <img class="collection" src="../../../imgs/download-11.png" alt="">
+            </div>
+          </div>
+          <div class="more">
+            查看更多
+          </div>
+        </div>
+
     </div>
 </template>
 
@@ -65,7 +59,7 @@
    import { swiper, swiperSlide } from 'vue-awesome-swiper'
     export default {
         name: "Puregame",
-         components:{
+        components:{
             Nav,
             swiper,
             swiperSlide
@@ -90,18 +84,29 @@
             observeParents:true,
             // 如果自行设计了插件，那么插件的一些配置相关参数，也应该出现在这个对象中，如下debugger
             debugger: true,
-          }
+          },
+          expagex: "",
+          num: 0,
+          Num: 0,
+          datas: '',
         }
-     }
+     },
+      created:function(){
+        this.$http.post('http://10.80.7.235/html1110/vue%E5%90%8E%E5%8F%B0/index.php?m=Home&c=Index&a=SelectAll').then((data) => {
+         this.datas = data.data[0];
+         console.log(data.data[0])
+        }).catch((err) => {
+          console.log(err)
+        })
+      }
    }
-
 </script>
 
 <style scoped>
-  *{
-    padding: 0;
-    margin: 0;
-  }
+  /**{*/
+    /*padding: 0;*/
+    /*margin: 0;*/
+  /*}*/
 
   .tit{
     width: 100%;
@@ -149,6 +154,7 @@
     width: 4px;
     height: 26px;
     float: left;
+    margin-left: 2%;
   }
   .recommend .text{
     float: left;
@@ -200,8 +206,80 @@
   .recommend .scenic .item .pr{
     margin-top: 6%;
   }
+  .route{
+    background-color: rgb(238,242,245);
+    overflow: hidden;
+    margin-top: 10%;
+  }
+  .route .tite .line{
+    background-color: rgb(44,60,109);
+    width: 4px;
+    height: 26px;
+    float: left;
+    margin-left: 2%;
+  }
+  .route .tite .text{
+    float: left;
+    font-size: 20px;
+    color: rgb(84, 97, 117);
+    margin-left: 3%;
+  }
+  .route .tite{
+    overflow: hidden;
+  }
+  .route .place{
+    margin-left: 3%;
+    margin-top: 5%;
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+  .route .place img{
+    width: 40%;
+    float: left;
+  }
+  .route .place .pl_con{
+    float: left;
+    width: 50%;
+    margin-left: 5%;
+    overflow: hidden;
+    position: relative;
+    height: 103px;
+  }
+  .route .place .pl_con div{
+    color: rgb(84, 97, 117);
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  .route .place .pl_con .al{
+    float: left;
+    color: rgb(157, 170, 184);
+    margin-top: 10%;
+  }
+  .route .place .pl_con .price{
+    color:rgb(255, 115, 97);
+  }
+  .route .place .pl_con .collection{
+    width: 10%;
+    float: left;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+  .route .more{
+    color: white;
+    margin: 0 auto;
+    height: 30px;
+    line-height: 30px;
+    background-color: rgb(255, 115, 97);
+    margin-bottom: 80px;
+    text-align: center;
+    width: 20%;
+    border-radius: 15px;
+    font-size: 14px;
 
-
+  }
 
 
 </style>
