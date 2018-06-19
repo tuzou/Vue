@@ -15,6 +15,7 @@
 </template>
 
 <script>
+  import  Nav from "../navcon/Nav";
     export default {
         name: "Nav"
     }

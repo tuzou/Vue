@@ -9,7 +9,6 @@
       <Nav></Nav>
         <swiper style="overflow: hidden" class="scroll" :options="swiperOption" ref="mySwiper">
           <!-- slides -->
-
           <swiper-slide class="show"><img src="../../../imgs/e13a2388-f460-471f-839d-6f9ee07e3e02-湖边（自拍）.jpg" alt=""></swiper-slide>
           <swiper-slide class="show"><img src="../../../imgs/2ba8edb4-c5a8-419c-9a51-8b334959a1af-939ad96a-a380-423d-a83a-69325ab5a21c-西双版纳（原）.jpg" alt=""></swiper-slide>
           <swiper-slide class="show"><img src="../../../imgs/7a491d2f-10b5-46b8-beaa-3b0f60991a35-ed11560a-110a-494c-9d3c-8c858fc74bda-洱海（原1）-1.jpg" alt=""></swiper-slide>
@@ -53,7 +52,6 @@
 
     </div>
 </template>
-
 <script>
    import  Nav from "../navcon/Nav";
    import { swiper, swiperSlide } from 'vue-awesome-swiper'
@@ -89,12 +87,13 @@
           num: 0,
           Num: 0,
           datas: '',
+
         }
      },
       created:function(){
         this.$http.post('http://10.80.7.235/html1110/vue%E5%90%8E%E5%8F%B0/index.php?m=Home&c=Index&a=SelectAll').then((data) => {
          this.datas = data.data[0];
-         console.log(data.data[0])
+         console.log(data.data[0]);
         }).catch((err) => {
           console.log(err)
         })
@@ -103,12 +102,12 @@
 </script>
 
 <style scoped>
-  /**{*/
-    /*padding: 0;*/
-    /*margin: 0;*/
-  /*}*/
+  *{
+    padding: 0;
+    margin: 0;
+  }
 
-  .tit{
+  .purgame .tit{
     width: 100%;
 
     height: 58px;
@@ -117,46 +116,46 @@
     overflow: hidden;
 
   }
-  .tit .back{
+  .purgame .tit .back{
     width: 10px;
     height: 18px;
     margin-left: 3%;
     float: left;
     margin-top: 5%;
   }
-  .tit .text{
+  .purgame .tit .text{
     width: 87%;
     font-size:20px;
     float: left;
     text-align: center;
     color:rgb(84, 97, 117);
   }
-  .tit .user{
+  .purgame .tit .user{
     width: 17px;
     height: 23px;
     margin-top: 5%;
     margin-right: 10px;
   }
-  .show{
+  .purgame .show{
     float: left;
     width: 20px;
   }
-  .scroll img{
+  .purgame .scroll img{
     width: 100%;
     height:200px;
   }
-  .recommend{
+  .purgame .recommend{
     overflow: hidden;
     margin-top: 3%;
   }
-  .recommend .line{
+  .purgame .recommend .line{
     background-color: rgb(44,60,109);
     width: 4px;
     height: 26px;
     float: left;
     margin-left: 2%;
   }
-  .recommend .text{
+  .purgame .recommend .text{
     float: left;
     font-size: 20px;
     color: rgb(84, 97, 117);

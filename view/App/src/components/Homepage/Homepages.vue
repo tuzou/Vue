@@ -11,21 +11,33 @@
 		<div class="bevel"></div>
 		<div class="Navigation_page">
 			<div class="Navigation_pages">
-				<div><img src="../../../imgs/btn1.png" alt="">
-					<p>纯玩游</p>
-				</div>
-				<div><img src="../../../imgs/btn2.png" alt="">
-					<p>半自助游</p>
-				</div>
+        <router-link tag="div" to="/Puregames">
+          <img src="../../../imgs/btn1.png" alt="">
+          <p>纯玩游</p>
+        </router-link>
+
+        <router-link tag="div" to="/Selftour">
+          <img src="../../../imgs/btn2.png" alt="">
+          <p>半自助游</p>
+        </router-link>
+
+
 				<div><img src="../../../imgs/btn3.png" alt="">
 					<p>VIP定制</p>
 				</div>
-				<div><img src="../../../imgs/btn4.png" alt="">
-					<p>主题游</p>
-				</div>
-				<div><img src="../../../imgs/btn5.png" alt="">
-					<p>关于我们</p>
-				</div>
+
+
+        <router-link tag="div" to="/Themetour">
+          <img src="../../../imgs/btn4.png" alt="">
+          <p>主题游</p>
+        </router-link>
+
+
+        <router-link tag="div" to="/About">
+          <img src="../../../imgs/btn5.png" alt="">
+          <p>关于我们</p>
+        </router-link>
+
 				<div><img src="../../../imgs/btn6.png" alt="">
 					<p>我的订单</p>
 				</div>
@@ -103,12 +115,17 @@
 				<p style="color: rgb(157, 170, 184);"><span style="color: rgb(255, 115, 97);">¥   {{v.t_price}}</span>元起</p>
 			</div>
 		</div>
+    <Tabar></Tabar>
 	</div>
 </template>
 
 <script>
+  import  Tabar from "../tabar/tabars";
 	export default {
 		name: "Homepage",
+    components:{
+      Tabar
+    },
 		props: ['data'],
 		data: function() {
 			return {
